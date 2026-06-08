@@ -459,3 +459,417 @@ body.sab-site-calculator .sab-calc-guide-steps li::before {
     margin-top: 1rem;
   }
 }
+
+/* ── Brainrots List Page ─────────────────────────────────────── */
+
+.sab-br-page { padding: 1.5rem 0 3rem; }
+
+.sab-br-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  margin-bottom: 1.25rem;
+}
+
+.sab-br-title { font-size: 1.5rem; font-weight: 900; color: #fff; }
+.sab-br-count { margin-left: .5rem; font-size: .9rem; font-weight: 500; color: #64748b; }
+
+/* Rarity filter tabs */
+.sab-br-rarity-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin-bottom: .75rem;
+}
+.sab-br-rtab {
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: 9999px;
+  background: rgba(15,23,42,.6);
+  padding: .3rem .8rem;
+  color: #94a3b8;
+  font-size: .75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.sab-br-rtab:hover { color: #e2e8f0; border-color: rgba(148,163,184,.5); }
+.sab-br-rtab.is-active { border-color: rgba(34,197,94,.7); background: rgba(6,78,59,.18); color: #4ade80; }
+
+/* Sort tabs */
+.sab-br-sort-tabs {
+  display: flex;
+  gap: .35rem;
+  align-items: center;
+}
+.sab-br-stab {
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: .5rem;
+  background: rgba(15,23,42,.55);
+  padding: .3rem .75rem;
+  color: #94a3b8;
+  font-size: .75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.sab-br-stab:hover { color: #e2e8f0; border-color: rgba(148,163,184,.45); }
+.sab-br-stab.is-active { border-color: rgba(34,197,94,.7); background: rgba(6,78,59,.18); color: #4ade80; }
+
+/* Card grid */
+.sab-br-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: .875rem;
+}
+
+/* Card */
+.sab-br-card {
+  border: 1px solid rgba(148,163,184,.12);
+  border-radius: 1rem;
+  background: #141b2d;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: border-color .15s, transform .15s, box-shadow .15s;
+}
+.sab-br-card:hover {
+  border-color: rgba(34,197,94,.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.3);
+}
+
+/* Image area — full-width, square-ish, centred image on gradient bg */
+.sab-br-img-area {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: radial-gradient(ellipse at 50% 60%, rgba(255,255,255,.06) 0%, #0d1523 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.sab-br-img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Card body */
+.sab-br-card-body {
+  padding: .75rem .875rem .875rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.sab-br-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: .875rem;
+  font-weight: 800;
+  color: #f1f5f9;
+  line-height: 1.3;
+}
+
+/* Rarity label (plain text, no badge pill) */
+.sab-br-rarity-label {
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .01em;
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.sab-br-r-og.sab-br-rarity-label       { color: #fde047; }
+.sab-br-r-secret.sab-br-rarity-label   { color: #d8b4fe; }
+.sab-br-r-mythic.sab-br-rarity-label   { color: #fca5a5; }
+.sab-br-r-legendary.sab-br-rarity-label{ color: #fdba74; }
+.sab-br-r-epic.sab-br-rarity-label     { color: #c4b5fd; }
+.sab-br-r-rare.sab-br-rarity-label     { color: #93c5fd; }
+.sab-br-r-common.sab-br-rarity-label   { color: #cbd5e1; }
+.sab-br-r-god.sab-br-rarity-label      { color: #86efac; }
+.sab-br-r-admin.sab-br-rarity-label    { color: #5eead4; }
+.sab-br-r-default.sab-br-rarity-label  { color: #94a3b8; }
+
+.sab-br-card-stats {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  margin-top: .1rem;
+  flex-wrap: wrap;
+}
+
+.sab-br-rarity-badge {
+  display: inline-block;
+  border-radius: 9999px;
+  padding: .18rem .6rem;
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+/* Rarity colours */
+.sab-br-r-og       { background: rgba(234,179,8,.18);   color: #fde047; border: 1px solid rgba(234,179,8,.4); }
+.sab-br-r-secret   { background: rgba(168,85,247,.18);  color: #d8b4fe; border: 1px solid rgba(168,85,247,.4); }
+.sab-br-r-mythic   { background: rgba(239,68,68,.18);   color: #fca5a5; border: 1px solid rgba(239,68,68,.4); }
+.sab-br-r-legendary{ background: rgba(249,115,22,.18);  color: #fdba74; border: 1px solid rgba(249,115,22,.4); }
+.sab-br-r-epic     { background: rgba(139,92,246,.18);  color: #c4b5fd; border: 1px solid rgba(139,92,246,.4); }
+.sab-br-r-rare     { background: rgba(59,130,246,.18);  color: #93c5fd; border: 1px solid rgba(59,130,246,.4); }
+.sab-br-r-common   { background: rgba(100,116,139,.18); color: #cbd5e1; border: 1px solid rgba(100,116,139,.4); }
+.sab-br-r-god      { background: rgba(34,197,94,.18);   color: #86efac; border: 1px solid rgba(34,197,94,.4); }
+.sab-br-r-admin    { background: rgba(20,184,166,.18);  color: #5eead4; border: 1px solid rgba(20,184,166,.4); }
+.sab-br-r-default  { background: rgba(100,116,139,.12); color: #94a3b8; border: 1px solid rgba(100,116,139,.3); }
+
+.sab-br-stat {
+  font-size: .72rem;
+  font-weight: 700;
+  color: #64748b;
+  line-height: 1.3;
+}
+.sab-br-stat-val { color: #e2e8f0; }
+.sab-br-income-val { color: #4ade80; font-size: .78rem; font-weight: 800; }
+.sab-br-cost-val   { color: #fbbf24; font-size: .78rem; font-weight: 800; }
+
+/* Pagination */
+.sab-br-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin-top: 2rem;
+}
+.sab-br-page-btn {
+  min-width: 2.1rem;
+  height: 2.1rem;
+  padding: 0 .5rem;
+  border: 1px solid rgba(148,163,184,.22);
+  border-radius: .5rem;
+  background: rgba(15,23,42,.6);
+  color: #94a3b8;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .12s, color .12s, background .12s;
+}
+.sab-br-page-btn:hover { color: #e2e8f0; border-color: rgba(148,163,184,.5); }
+.sab-br-page-btn.is-active { border-color: rgba(34,197,94,.7); background: rgba(6,78,59,.22); color: #4ade80; }
+.sab-br-page-btn:disabled { opacity: .35; cursor: not-allowed; }
+
+.sab-br-page-info {
+  margin-top: .75rem;
+  text-align: center;
+  font-size: .78rem;
+  color: #64748b;
+}
+
+/* ── Brainrots Detail Modal ─────────────────────────────────── */
+
+.sab-br-modal {
+  position: fixed; inset: 0; z-index: 90;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: auto;
+  background: rgba(2,6,23,.82);
+  padding: 1rem;
+}
+.sab-br-modal.is-open { display: flex; }
+
+.sab-br-dialog {
+  width: min(520px, 100%);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 1.25rem;
+  background: #0d1117;
+  box-shadow: 0 24px 80px rgba(0,0,0,.6);
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+
+.sab-br-dialog-close {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(15,23,42,.8);
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: color .15s, border-color .15s;
+}
+.sab-br-dialog-close:hover { color: #fff; border-color: rgba(255,255,255,.35); }
+
+.sab-br-dialog-img-wrap {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: radial-gradient(ellipse at 50% 60%, rgba(34,197,94,.12) 0%, #0d1117 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.sab-br-dialog-img {
+  max-height: 14rem;
+  max-width: 80%;
+  object-fit: contain;
+}
+
+.sab-br-dialog-body { padding: 1.25rem; }
+
+.sab-br-dialog-name {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.sab-br-dialog-stats {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: .75rem 0;
+  flex-wrap: wrap;
+}
+.sab-br-dialog-stat-item {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .85rem;
+  font-weight: 700;
+}
+.sab-br-dialog-stat-icon { font-size: 1rem; }
+.sab-br-dialog-stat-label { color: #64748b; font-size: .72rem; font-weight: 600; }
+.sab-br-dialog-stat-green { color: #4ade80; }
+.sab-br-dialog-stat-yellow { color: #fbbf24; }
+.sab-br-dialog-stat-white { color: #fff; }
+
+/* Mutation tabs */
+.sab-br-mutation-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .35rem;
+  margin: .75rem 0 1rem;
+}
+.sab-br-mut-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  border: 1px solid rgba(148,163,184,.2);
+  border-radius: 9999px;
+  background: rgba(15,23,42,.7);
+  padding: .28rem .65rem;
+  color: #94a3b8;
+  font-size: .72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color .12s, color .12s, background .12s;
+}
+.sab-br-mut-tab img { width: 1rem; height: 1rem; object-fit: contain; }
+.sab-br-mut-tab:hover { color: #e2e8f0; border-color: rgba(148,163,184,.45); }
+.sab-br-mut-tab.is-active { border-color: rgba(34,197,94,.7); background: rgba(6,78,59,.22); color: #4ade80; }
+
+/* 30D Price chart */
+.sab-br-chart-wrap {
+  border: 1px solid rgba(148,163,184,.14);
+  border-radius: .875rem;
+  background: rgba(15,23,42,.55);
+  padding: .875rem;
+  margin-top: .5rem;
+}
+.sab-br-chart-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: .5rem;
+}
+.sab-br-chart-label {
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  color: #64748b;
+  text-transform: uppercase;
+}
+.sab-br-chart-meta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.sab-br-chart-signal {
+  border-radius: 9999px;
+  padding: .18rem .55rem;
+  font-size: .66rem;
+  font-weight: 800;
+  border: 1px solid;
+}
+.sab-br-chart-signal-low  { border-color: rgba(239,68,68,.5); background: rgba(239,68,68,.1); color: #fca5a5; }
+.sab-br-chart-signal-high { border-color: rgba(34,197,94,.5); background: rgba(34,197,94,.1); color: #86efac; }
+.sab-br-chart-pct { font-size: .82rem; font-weight: 900; }
+.sab-br-chart-pct-neg { color: #f87171; }
+.sab-br-chart-pct-pos { color: #4ade80; }
+
+.sab-br-chart-canvas { display: block; width: 100%; height: 80px; }
+
+.sab-br-chart-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: .35rem;
+  font-size: .66rem;
+  color: #475569;
+}
+.sab-br-chart-cur-val { color: #fbbf24; font-weight: 800; font-size: .75rem; }
+
+.sab-br-chart-empty {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  color: #475569;
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+.sab-br-learn-more {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  color: #64748b;
+  font-size: .8rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color .15s;
+}
+.sab-br-learn-more:hover { color: #94a3b8; }
+
+/* Empty state */
+.sab-br-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #475569;
+  font-size: .9rem;
+}
+
+@media (max-width: 480px) {
+  .sab-br-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+  .sab-br-toolbar { flex-direction: column; align-items: flex-start; }
+  .sab-br-card-body { padding: .55rem .65rem .65rem; }
+  .sab-br-name { font-size: .78rem; }
+}

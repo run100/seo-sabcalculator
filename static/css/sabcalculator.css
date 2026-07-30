@@ -122,6 +122,26 @@ body.sab-site-calculator {
   color: #e2e8f0;
 }
 
+.sab-calc-footer-disclaimer {
+  width: min(1280px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 1rem 1.5rem;
+  color: #475569;
+  font-size: 0.6875rem;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.sab-calc-footer-disclaimer a {
+  color: #64748b;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.sab-calc-footer-disclaimer a:hover {
+  color: #94a3b8;
+}
+
 /* Calculator legal / static pages */
 .sab-calc-legal {
   width: min(48rem, 100%);

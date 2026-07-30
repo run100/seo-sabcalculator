@@ -106,10 +106,78 @@ body.sab-site-calculator {
 
 .sab-calc-footer-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   color: #cbd5e1;
   font-size: 0.875rem;
   font-weight: 600;
+}
+
+.sab-calc-footer-links a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.sab-calc-footer-links a:hover {
+  color: #e2e8f0;
+}
+
+/* Calculator legal / static pages */
+.sab-calc-legal {
+  width: min(48rem, 100%);
+  margin: 0 auto;
+  padding: 1.5rem 0 2.5rem;
+}
+
+.sab-calc-legal-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+  color: #64748b;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.sab-calc-legal-breadcrumb a {
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.sab-calc-legal-breadcrumb a:hover {
+  color: #e2e8f0;
+}
+
+.sab-calc-legal-kicker {
+  display: inline-block;
+  margin-bottom: 0.65rem;
+  color: #fbbf24;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sab-calc-legal-title {
+  margin: 0 0 0.85rem;
+  color: #f8fafc;
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.sab-calc-legal-lead {
+  margin: 0 0 1.75rem;
+  max-width: 42rem;
+  color: #94a3b8;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.sab-calc-legal .sab-legal-body {
+  max-width: none;
 }
 
 .sab-calc-bg-glow {

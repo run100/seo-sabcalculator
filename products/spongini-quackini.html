@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="/static/css/sabcalculator.css" />
 
 <title>Spongini Quackini Income 2026 | SAB Calculator</title>
-<meta name="description" content="Check Spongini Quackini in Steal a Brainrot: income per second, demand, 30D price history, and trade signals. Use the calculator to compare brainrot values." />
+<meta name="description" content="Check Spongini Quackini in Steal a Brainrot: income per second, demand, mutation values, 30D price history, and trade signals. Use the calculator to compare brainrot values." />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <meta name="theme-color" content="#0a0f1a" />
 <link rel="canonical" href="https://sabcalculator.com/products/spongini-quackini.html" />
@@ -31,15 +31,15 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Spongini Quackini Income 2026 | SAB Calculator" />
-<meta property="og:description" content="Check Spongini Quackini in Steal a Brainrot: income per second, demand, 30D price history, and trade signals. Use the calculator to compare brainrot values." />
+<meta property="og:description" content="Check Spongini Quackini in Steal a Brainrot: income per second, demand, mutation values, 30D price history, and trade signals. Use the calculator to compare brainrot values." />
 <meta property="og:url" content="https://sabcalculator.com/products/spongini-quackini.html" />
 <meta property="og:site_name" content="SAB Calculator" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Spongini Quackini Income 2026 | SAB Calculator" />
-<meta name="twitter:description" content="Check Spongini Quackini in Steal a Brainrot: income per second, demand, 30D price history, and trade signals. Use the calculator to compare brainrot values." />
+<meta name="twitter:description" content="Check Spongini Quackini in Steal a Brainrot: income per second, demand, mutation values, 30D price history, and trade signals. Use the calculator to compare brainrot values." />
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SAB Exist Count","url":"https://sabcalculator.com","description":"Check Spongini Quackini in Steal a Brainrot: income per second, demand, 30D price history, and trade signals. Use the calculator to compare brainrot values."}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"SAB Exist Count","url":"https://sabcalculator.com","description":"Check Spongini Quackini in Steal a Brainrot: income per second, demand, mutation values, 30D price history, and trade signals. Use the calculator to compare brainrot values."}</script>
 </head>
 <body class="sab-site-calculator">
 <div class="sab-calc-bg-glow" aria-hidden="true">
@@ -199,12 +199,41 @@
     color: rgb(100, 116, 139);
   }
   .sab-ci-section-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0 1rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .sab-ci-section-nav::-webkit-scrollbar { display: none; }
-  .sab-ci-section-nav > a { flex-shrink: 0; }
+  .sab-ci-section-nav > a {
+    flex-shrink: 0;
+    margin-bottom: -1px;
+    padding: 0.7rem 0.85rem;
+    border-bottom: 2px solid transparent;
+    color: rgb(148, 163, 184);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sab-ci-section-nav > a:hover {
+    color: rgb(226, 232, 240);
+  }
+  .sab-ci-section-nav > a.is-active {
+    color: rgb(74, 222, 128);
+    border-bottom-color: rgb(74, 222, 128);
+  }
   @media (min-width: 768px) {
+    .sab-ci-section-nav {
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      overflow: visible;
+    }
     .sab-ci-hero {
       grid-template-columns: 7rem minmax(0, 1fr);
     }
@@ -229,10 +258,11 @@
 
   
   <div class="sticky z-40 -mx-4 mb-5 border-b border-white/10 bg-slate-950/90 backdrop-blur" style="top:var(--sab-ci-sticky-top,64px)" data-ci-nav-shell>
-    <nav class="sab-ci-section-nav flex flex-nowrap gap-2 overflow-x-auto px-4 py-2 text-sm font-bold text-slate-400 md:flex-wrap md:gap-3 md:overflow-visible" aria-label="Page sections" data-ci-nav>
-      <a href="#value" class="rounded-md border-b border-green-400 px-3 py-2 leading-none text-green-400 hover:text-green-300" data-ci-link="value" aria-current="true">Value</a>
-                  <a href="#faq" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="faq">FAQ</a>
-            <a href="#about" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="about">About</a>
+    <nav class="sab-ci-section-nav" aria-label="Page sections" data-ci-nav>
+      <a href="#value" class="is-active" data-ci-link="value" aria-current="true">Value</a>
+                  <a href="#mutations" data-ci-link="mutations">Mutations</a>
+            <a href="#faq" data-ci-link="faq">FAQ</a>
+            <a href="#about" data-ci-link="about">About</a>
           </nav>
   </div>
 
@@ -286,6 +316,43 @@
   
   
   
+    <section id="mutations" class="mb-6 scroll-mt-32" style="scroll-margin-top:8rem">
+    <h2 class="text-base font-bold mb-3">Mutations</h2>
+    <div class="rounded-xl border border-white/10 bg-slate-900 shadow-sm shadow-black/20 overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm" data-ci-variants-table>
+          <thead>
+            <tr class="border-b border-white/10">
+              <th class="px-4 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider">Variant</th>
+              <th class="px-4 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider" aria-sort="none">
+                <button type="button" class="-mx-2 -my-2 inline-flex items-center gap-1.5 rounded-md bg-amber-400/10 px-2.5 py-1.5 uppercase tracking-wider text-amber-200 hover:bg-amber-400/20" title="Sort by value" data-ci-value-sort>
+                  <span>Value</span>
+                  <span class="rounded bg-amber-400/10 px-1.5 py-0.5 text-[10px] font-black tracking-normal text-amber-200" data-ci-sort-icon>↕ Sort</span>
+                </button>
+              </th>
+              <th class="px-4 py-3 text-left text-xs font-semibold text-slate-400 uppercase tracking-wider hidden sm:table-cell">Demand</th>
+            </tr>
+          </thead>
+          <tbody data-ci-variants-body>
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="">
+              <td class="px-4 py-3 font-medium">
+                                                    <span style="color:#94a3b8">Default</span>
+                                                </td>
+              <td class="px-4 py-3 font-mono text-amber-300">—</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">NORMAL</td>
+            </tr>
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="">
+              <td class="px-4 py-3 font-medium">
+                                Crystal
+                              </td>
+              <td class="px-4 py-3 font-mono text-amber-300">—</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">—</td>
+            </tr>
+                      </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
   
   
   <section id="faq" class="mb-12 scroll-mt-32" style="scroll-margin-top:8rem">
@@ -305,7 +372,7 @@
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">What mutations does Spongini Quackini have?</h3>
-        <p class="mt-2 leading-7 text-slate-300">Spongini Quackini does not have confirmed mutation value data in this tracker yet.</p>
+        <p class="mt-2 leading-7 text-slate-300">Spongini Quackini has <strong>1</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">Is Spongini Quackini worth trading for?</h3>
@@ -315,7 +382,7 @@
   </section>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Spongini Quackini rare?","acceptedAnswer":{"@type":"Answer","text":"Spongini Quackini is considered extremely rare in Steal a Brainrot. Its Mythic rarity tier puts it among the hardest items to obtain."}},{"@type":"Question","name":"What is Spongini Quackini's income per second?","acceptedAnswer":{"@type":"Answer","text":"Spongini Quackini generates $13K/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Spongini Quackini's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"No confirmed ROBUX value is available yet for Spongini Quackini. Check the 30D price history section for the latest signals."}},{"@type":"Question","name":"What mutations does Spongini Quackini have?","acceptedAnswer":{"@type":"Answer","text":"Spongini Quackini does not have confirmed mutation value data in this tracker yet."}},{"@type":"Question","name":"Is Spongini Quackini worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Yes — Spongini Quackini is generally high-value for trading due to its Mythic rarity tier and limited supply."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Spongini Quackini rare?","acceptedAnswer":{"@type":"Answer","text":"Spongini Quackini is considered extremely rare in Steal a Brainrot. Its Mythic rarity tier puts it among the hardest items to obtain."}},{"@type":"Question","name":"What is Spongini Quackini's income per second?","acceptedAnswer":{"@type":"Answer","text":"Spongini Quackini generates $13K/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Spongini Quackini's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"No confirmed ROBUX value is available yet for Spongini Quackini. Check the 30D price history section for the latest signals."}},{"@type":"Question","name":"What mutations does Spongini Quackini have?","acceptedAnswer":{"@type":"Answer","text":"Spongini Quackini has 1 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Spongini Quackini worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Yes — Spongini Quackini is generally high-value for trading due to its Mythic rarity tier and limited supply."}}]}
   </script>
 
   
@@ -336,7 +403,13 @@
                         <li>The base income rate is $13K/s, which is the main earning signal for this brainrot.</li>
                       </ul>
         </div>
-                                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+          <h3 class="text-lg font-bold text-slate-100">Mutations</h3>
+          <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
+                        <li>Spongini Quackini has 1 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
+                      </ul>
+        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h3 class="text-lg font-bold text-slate-100">Should You Trade for Spongini Quackini?</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
                         <li>Spongini Quackini is generally considered high-value for trading due to its Mythic rarity tier.</li>
@@ -358,6 +431,9 @@
     <div class="sab-calc-footer-links">
       <a href="/">Calculator</a>
       <a href="#faq">FAQ</a>
+      <a href="/about-us.html">About Us</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -383,14 +459,10 @@
       navShell.style.setProperty('--sab-ci-sticky-top', Math.max(0, headerBottom) + 'px');
     }
 
-    var activeAnchor = ['border-green-400', 'text-green-400'];
-    var inactiveAnchor = ['border-transparent'];
-
     function setActive(id) {
       links.forEach(function (link) {
         var isActive = link.getAttribute('data-ci-link') === id;
-        activeAnchor.forEach(function (c) { link.classList.toggle(c, isActive); });
-        inactiveAnchor.forEach(function (c) { link.classList.toggle(c, !isActive); });
+        link.classList.toggle('is-active', isActive);
         if (isActive) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');
       });

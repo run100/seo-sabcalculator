@@ -199,12 +199,41 @@
     color: rgb(100, 116, 139);
   }
   .sab-ci-section-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0 1rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .sab-ci-section-nav::-webkit-scrollbar { display: none; }
-  .sab-ci-section-nav > a { flex-shrink: 0; }
+  .sab-ci-section-nav > a {
+    flex-shrink: 0;
+    margin-bottom: -1px;
+    padding: 0.7rem 0.85rem;
+    border-bottom: 2px solid transparent;
+    color: rgb(148, 163, 184);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sab-ci-section-nav > a:hover {
+    color: rgb(226, 232, 240);
+  }
+  .sab-ci-section-nav > a.is-active {
+    color: rgb(74, 222, 128);
+    border-bottom-color: rgb(74, 222, 128);
+  }
   @media (min-width: 768px) {
+    .sab-ci-section-nav {
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      overflow: visible;
+    }
     .sab-ci-hero {
       grid-template-columns: 7rem minmax(0, 1fr);
     }
@@ -229,12 +258,12 @@
 
   
   <div class="sticky z-40 -mx-4 mb-5 border-b border-white/10 bg-slate-950/90 backdrop-blur" style="top:var(--sab-ci-sticky-top,64px)" data-ci-nav-shell>
-    <nav class="sab-ci-section-nav flex flex-nowrap gap-2 overflow-x-auto px-4 py-2 text-sm font-bold text-slate-400 md:flex-wrap md:gap-3 md:overflow-visible" aria-label="Page sections" data-ci-nav>
-      <a href="#value" class="rounded-md border-b border-green-400 px-3 py-2 leading-none text-green-400 hover:text-green-300" data-ci-link="value" aria-current="true">Value</a>
-            <a href="#price-history" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="price-history">30D Price</a>
-                  <a href="#mutations" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="mutations">Mutations</a>
-            <a href="#faq" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="faq">FAQ</a>
-            <a href="#about" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="about">About</a>
+    <nav class="sab-ci-section-nav" aria-label="Page sections" data-ci-nav>
+      <a href="#value" class="is-active" data-ci-link="value" aria-current="true">Value</a>
+            <a href="#price-history" data-ci-link="price-history">30D Price</a>
+                  <a href="#mutations" data-ci-link="mutations">Mutations</a>
+            <a href="#faq" data-ci-link="faq">FAQ</a>
+            <a href="#about" data-ci-link="about">About</a>
           </nav>
   </div>
 
@@ -325,6 +354,13 @@
                     <img src="/uploads/images/sab/calculator/mutations/cursed.webp" alt="" loading="lazy">
                     Cursed
         </button>
+                <button
+          type="button"
+          class="sab-ci-mut-tab"
+          data-mut-idx="2"
+        >
+                    Crystal
+        </button>
               </div>
             
       <div class="mb-4 flex items-start justify-between gap-4">
@@ -339,7 +375,7 @@
         id="sabCiPriceChart"
         class="block h-28 w-full"
         width="720" height="112"
-                data-mutations='[{"id":"base","name":"Default","multiplier":1,"image":null,"robuxValue":null,"priceHistory":[]},{"id":"mutation-cursed","name":"Cursed","multiplier":9,"image":"\/uploads\/images\/sab\/calculator\/mutations\/cursed.webp","robuxValue":150,"priceHistory":[{"date":"2026-06-14","value":150},{"date":"2026-06-16","value":150},{"date":"2026-06-17","value":150},{"date":"2026-06-22","value":150},{"date":"2026-06-23","value":150},{"date":"2026-06-24","value":150},{"date":"2026-06-25","value":150},{"date":"2026-06-26","value":150},{"date":"2026-06-27","value":150},{"date":"2026-06-28","value":150},{"date":"2026-06-29","value":150},{"date":"2026-06-30","value":150},{"date":"2026-07-01","value":150},{"date":"2026-07-02","value":150},{"date":"2026-07-03","value":150},{"date":"2026-07-05","value":150},{"date":"2026-07-06","value":150},{"date":"2026-07-07","value":150},{"date":"2026-07-08","value":150},{"date":"2026-07-09","value":150},{"date":"2026-07-10","value":150},{"date":"2026-07-11","value":150},{"date":"2026-07-12","value":150},{"date":"2026-07-13","value":150},{"date":"2026-07-14","value":150}]}]'
+                data-mutations='[{"id":"base","name":"Default","multiplier":1,"image":null,"robuxValue":null,"priceHistory":[]},{"id":"mutation-cursed","name":"Cursed","multiplier":9,"image":"\/uploads\/images\/sab\/calculator\/mutations\/cursed.webp","robuxValue":150,"priceHistory":[{"date":"2026-06-30","value":150},{"date":"2026-07-01","value":150},{"date":"2026-07-02","value":150},{"date":"2026-07-03","value":150},{"date":"2026-07-05","value":150},{"date":"2026-07-06","value":150},{"date":"2026-07-07","value":150},{"date":"2026-07-08","value":150},{"date":"2026-07-09","value":150},{"date":"2026-07-10","value":150},{"date":"2026-07-11","value":150},{"date":"2026-07-12","value":150},{"date":"2026-07-13","value":150},{"date":"2026-07-14","value":150},{"date":"2026-07-15","value":150},{"date":"2026-07-16","value":150},{"date":"2026-07-17","value":150},{"date":"2026-07-18","value":150},{"date":"2026-07-19","value":150},{"date":"2026-07-20","value":150},{"date":"2026-07-21","value":150},{"date":"2026-07-22","value":150},{"date":"2026-07-23","value":150},{"date":"2026-07-24","value":150},{"date":"2026-07-26","value":150},{"date":"2026-07-27","value":150},{"date":"2026-07-28","value":150},{"date":"2026-07-29","value":150}]},{"id":"mutation-crystal","name":"Crystal","multiplier":13,"image":null,"robuxValue":null,"priceHistory":[]}]'
                 aria-label="Espresso Signora 30D price history"
       ></canvas>
       <div id="sabCiPriceEmpty" class="sab-ci-chart-empty">No price history yet</div>
@@ -379,6 +415,13 @@
               <td class="px-4 py-3 font-mono text-amber-300">—</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">NORMAL</td>
             </tr>
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="">
+              <td class="px-4 py-3 font-medium">
+                                Crystal
+                              </td>
+              <td class="px-4 py-3 font-mono text-amber-300">—</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">—</td>
+            </tr>
                                     <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="150">
               <td class="px-4 py-3 font-medium">
                                 Cursed
@@ -410,7 +453,7 @@
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">What mutations does Espresso Signora have?</h3>
-        <p class="mt-2 leading-7 text-slate-300">Espresso Signora has <strong>1</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
+        <p class="mt-2 leading-7 text-slate-300">Espresso Signora has <strong>2</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">Is Espresso Signora worth trading for?</h3>
@@ -420,7 +463,7 @@
   </section>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Espresso Signora rare?","acceptedAnswer":{"@type":"Answer","text":"Espresso Signora is considered extremely rare in Steal a Brainrot. Its Brainrot God rarity tier puts it among the hardest items to obtain."}},{"@type":"Question","name":"What is Espresso Signora's income per second?","acceptedAnswer":{"@type":"Answer","text":"Espresso Signora generates $70K/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Espresso Signora's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"No confirmed ROBUX value is available yet for Espresso Signora. Check the 30D price history section for the latest signals."}},{"@type":"Question","name":"What mutations does Espresso Signora have?","acceptedAnswer":{"@type":"Answer","text":"Espresso Signora has 1 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Espresso Signora worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Yes — Espresso Signora is generally high-value for trading due to its Brainrot God rarity tier and limited supply."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Espresso Signora rare?","acceptedAnswer":{"@type":"Answer","text":"Espresso Signora is considered extremely rare in Steal a Brainrot. Its Brainrot God rarity tier puts it among the hardest items to obtain."}},{"@type":"Question","name":"What is Espresso Signora's income per second?","acceptedAnswer":{"@type":"Answer","text":"Espresso Signora generates $70K/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Espresso Signora's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"No confirmed ROBUX value is available yet for Espresso Signora. Check the 30D price history section for the latest signals."}},{"@type":"Question","name":"What mutations does Espresso Signora have?","acceptedAnswer":{"@type":"Answer","text":"Espresso Signora has 2 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Espresso Signora worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Yes — Espresso Signora is generally high-value for trading due to its Brainrot God rarity tier and limited supply."}}]}
   </script>
 
   
@@ -444,7 +487,7 @@
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h3 class="text-lg font-bold text-slate-100">Mutations</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
-                        <li>Espresso Signora has 1 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
+                        <li>Espresso Signora has 2 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
                       </ul>
         </div>
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
@@ -469,6 +512,9 @@
     <div class="sab-calc-footer-links">
       <a href="/">Calculator</a>
       <a href="#faq">FAQ</a>
+      <a href="/about-us.html">About Us</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -494,14 +540,10 @@
       navShell.style.setProperty('--sab-ci-sticky-top', Math.max(0, headerBottom) + 'px');
     }
 
-    var activeAnchor = ['border-green-400', 'text-green-400'];
-    var inactiveAnchor = ['border-transparent'];
-
     function setActive(id) {
       links.forEach(function (link) {
         var isActive = link.getAttribute('data-ci-link') === id;
-        activeAnchor.forEach(function (c) { link.classList.toggle(c, isActive); });
-        inactiveAnchor.forEach(function (c) { link.classList.toggle(c, !isActive); });
+        link.classList.toggle('is-active', isActive);
         if (isActive) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');
       });

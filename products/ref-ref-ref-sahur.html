@@ -199,12 +199,41 @@
     color: rgb(100, 116, 139);
   }
   .sab-ci-section-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0 1rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .sab-ci-section-nav::-webkit-scrollbar { display: none; }
-  .sab-ci-section-nav > a { flex-shrink: 0; }
+  .sab-ci-section-nav > a {
+    flex-shrink: 0;
+    margin-bottom: -1px;
+    padding: 0.7rem 0.85rem;
+    border-bottom: 2px solid transparent;
+    color: rgb(148, 163, 184);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sab-ci-section-nav > a:hover {
+    color: rgb(226, 232, 240);
+  }
+  .sab-ci-section-nav > a.is-active {
+    color: rgb(74, 222, 128);
+    border-bottom-color: rgb(74, 222, 128);
+  }
   @media (min-width: 768px) {
+    .sab-ci-section-nav {
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      overflow: visible;
+    }
     .sab-ci-hero {
       grid-template-columns: 7rem minmax(0, 1fr);
     }
@@ -229,12 +258,12 @@
 
   
   <div class="sticky z-40 -mx-4 mb-5 border-b border-white/10 bg-slate-950/90 backdrop-blur" style="top:var(--sab-ci-sticky-top,64px)" data-ci-nav-shell>
-    <nav class="sab-ci-section-nav flex flex-nowrap gap-2 overflow-x-auto px-4 py-2 text-sm font-bold text-slate-400 md:flex-wrap md:gap-3 md:overflow-visible" aria-label="Page sections" data-ci-nav>
-      <a href="#value" class="rounded-md border-b border-green-400 px-3 py-2 leading-none text-green-400 hover:text-green-300" data-ci-link="value" aria-current="true">Value</a>
-            <a href="#price-history" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="price-history">30D Price</a>
-                  <a href="#mutations" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="mutations">Mutations</a>
-            <a href="#faq" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="faq">FAQ</a>
-            <a href="#about" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="about">About</a>
+    <nav class="sab-ci-section-nav" aria-label="Page sections" data-ci-nav>
+      <a href="#value" class="is-active" data-ci-link="value" aria-current="true">Value</a>
+            <a href="#price-history" data-ci-link="price-history">30D Price</a>
+                  <a href="#mutations" data-ci-link="mutations">Mutations</a>
+            <a href="#faq" data-ci-link="faq">FAQ</a>
+            <a href="#about" data-ci-link="about">About</a>
           </nav>
   </div>
 
@@ -250,7 +279,7 @@
         </h1>
         <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0.5rem">
                     <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase bg-pink-500/20 text-pink-400 border border-pink-500/30">Secret</span>
-                              <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase bg-slate-700/40 text-slate-400 border border-slate-600/30">RISING</span>
+                              <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold uppercase bg-slate-700/40 text-slate-400 border border-slate-600/30">LOWERING</span>
                   </div>
       </div>
     </div>
@@ -264,12 +293,12 @@
       <div class="sab-ci-stat-cell">
         <div class="sab-ci-stat-label">Value</div>
         <div class="sab-ci-stat-value sab-ci-stat-value--value">
-                    90 <span style="font-size:0.65rem;font-weight:600;opacity:.7">ROBUX</span>
+                    50 <span style="font-size:0.65rem;font-weight:600;opacity:.7">ROBUX</span>
                   </div>
       </div>
       <div class="sab-ci-stat-cell">
         <div class="sab-ci-stat-label">Demand</div>
-        <div class="sab-ci-stat-value sab-ci-stat-value--demand">NORMAL</div>
+        <div class="sab-ci-stat-value sab-ci-stat-value--demand">TERRIBLE</div>
       </div>
     </div>
   </section>
@@ -292,7 +321,7 @@
         <div>
           <div class="sab-ci-price-stat-label">Value</div>
           <div id="sabCiBaseValue" class="mt-1 text-base font-bold text-slate-100">
-                        $90.00
+                        $50.00
                       </div>
         </div>
         <div>
@@ -304,7 +333,7 @@
         <div>
           <div class="sab-ci-price-stat-label">Mutation Value</div>
           <div id="sabCiMutValue" class="mt-1 text-base font-bold text-amber-300">
-                        $90.00
+                        $50.00
                       </div>
         </div>
       </div>
@@ -322,16 +351,16 @@
           class="sab-ci-mut-tab"
           data-mut-idx="1"
         >
-                    <img src="/uploads/images/sab/calculator/mutations/gold.webp" alt="" loading="lazy">
-                    Gold
+                    <img src="/uploads/images/sab/calculator/mutations/diamond.webp" alt="" loading="lazy">
+                    Diamond
         </button>
                 <button
           type="button"
           class="sab-ci-mut-tab"
           data-mut-idx="2"
         >
-                    <img src="/uploads/images/sab/calculator/mutations/diamond.webp" alt="" loading="lazy">
-                    Diamond
+                    <img src="/uploads/images/sab/calculator/mutations/gold.webp" alt="" loading="lazy">
+                    Gold
         </button>
                 <button
           type="button"
@@ -341,16 +370,23 @@
                     <img src="/uploads/images/sab/calculator/mutations/rainbow.webp" alt="" loading="lazy">
                     Rainbow
         </button>
+                <button
+          type="button"
+          class="sab-ci-mut-tab"
+          data-mut-idx="4"
+        >
+                    Crystal
+        </button>
               </div>
             
       <div class="mb-4 flex items-start justify-between gap-4">
         <div class="text-xs font-black uppercase tracking-[.18em] text-slate-500">30D PRICE</div>
         <div class="flex items-center gap-3">
-                    <span id="sabCiPriceSignal" class="rounded-full border px-3 py-1 text-xs font-black border-emerald-400/40 bg-emerald-400/10 text-emerald-300">
-            High
+                    <span id="sabCiPriceSignal" class="rounded-full border px-3 py-1 text-xs font-black border-rose-400/40 bg-rose-400/10 text-rose-300">
+            Low
           </span>
-          <span id="sabCiPricePct" class="text-lg font-black text-emerald-300">
-            +12.5%
+          <span id="sabCiPricePct" class="text-lg font-black text-rose-300">
+            -37.5%
           </span>
                   </div>
       </div>
@@ -359,17 +395,17 @@
         id="sabCiPriceChart"
         class="block h-28 w-full"
         width="720" height="112"
-                data-mutations='[{"id":"base","name":"Default","multiplier":1,"image":null,"robuxValue":90,"priceHistory":[{"date":"2026-07-08","value":80},{"date":"2026-07-09","value":80},{"date":"2026-07-10","value":88},{"date":"2026-07-11","value":75},{"date":"2026-07-12","value":100},{"date":"2026-07-13","value":99},{"date":"2026-07-14","value":90}]},{"id":"mutation-gold","name":"Gold","multiplier":1.25,"image":"\/uploads\/images\/sab\/calculator\/mutations\/gold.webp","robuxValue":170,"priceHistory":[{"date":"2026-07-09","value":215},{"date":"2026-07-10","value":213},{"date":"2026-07-11","value":198},{"date":"2026-07-12","value":198},{"date":"2026-07-13","value":198},{"date":"2026-07-14","value":170}]},{"id":"mutation-diamond","name":"Diamond","multiplier":1.5,"image":"\/uploads\/images\/sab\/calculator\/mutations\/diamond.webp","robuxValue":700,"priceHistory":[{"date":"2026-07-09","value":499},{"date":"2026-07-10","value":499},{"date":"2026-07-11","value":790},{"date":"2026-07-12","value":790},{"date":"2026-07-13","value":5000},{"date":"2026-07-14","value":700}]},{"id":"mutation-rainbow","name":"Rainbow","multiplier":10,"image":"\/uploads\/images\/sab\/calculator\/mutations\/rainbow.webp","robuxValue":940,"priceHistory":[{"date":"2026-07-09","value":999},{"date":"2026-07-10","value":5000},{"date":"2026-07-11","value":10000},{"date":"2026-07-12","value":5000},{"date":"2026-07-13","value":487},{"date":"2026-07-14","value":940}]}]'
+                data-mutations='[{"id":"base","name":"Default","multiplier":1,"image":null,"robuxValue":50,"priceHistory":[{"date":"2026-07-08","value":80},{"date":"2026-07-09","value":80},{"date":"2026-07-10","value":88},{"date":"2026-07-11","value":75},{"date":"2026-07-12","value":100},{"date":"2026-07-13","value":99},{"date":"2026-07-14","value":90},{"date":"2026-07-15","value":90},{"date":"2026-07-16","value":99},{"date":"2026-07-17","value":100},{"date":"2026-07-18","value":90},{"date":"2026-07-19","value":90},{"date":"2026-07-20","value":89},{"date":"2026-07-21","value":89},{"date":"2026-07-22","value":88},{"date":"2026-07-23","value":85},{"date":"2026-07-24","value":64.5},{"date":"2026-07-26","value":67},{"date":"2026-07-27","value":82},{"date":"2026-07-28","value":50},{"date":"2026-07-29","value":50}]},{"id":"mutation-diamond","name":"Diamond","multiplier":1.5,"image":"\/uploads\/images\/sab\/calculator\/mutations\/diamond.webp","robuxValue":990,"priceHistory":[{"date":"2026-07-09","value":499},{"date":"2026-07-10","value":499},{"date":"2026-07-11","value":790},{"date":"2026-07-12","value":790},{"date":"2026-07-13","value":5000},{"date":"2026-07-14","value":700},{"date":"2026-07-15","value":5000},{"date":"2026-07-16","value":299},{"date":"2026-07-17","value":299},{"date":"2026-07-18","value":800},{"date":"2026-07-19","value":800},{"date":"2026-07-20","value":500},{"date":"2026-07-21","value":500},{"date":"2026-07-22","value":400},{"date":"2026-07-23","value":500},{"date":"2026-07-24","value":390},{"date":"2026-07-26","value":390},{"date":"2026-07-27","value":340},{"date":"2026-07-28","value":790},{"date":"2026-07-29","value":715}]},{"id":"mutation-gold","name":"Gold","multiplier":1.25,"image":"\/uploads\/images\/sab\/calculator\/mutations\/gold.webp","robuxValue":599,"priceHistory":[{"date":"2026-07-09","value":215},{"date":"2026-07-10","value":213},{"date":"2026-07-11","value":198},{"date":"2026-07-12","value":198},{"date":"2026-07-13","value":198},{"date":"2026-07-14","value":170},{"date":"2026-07-15","value":170},{"date":"2026-07-16","value":179},{"date":"2026-07-17","value":99},{"date":"2026-07-18","value":280},{"date":"2026-07-19","value":149},{"date":"2026-07-20","value":149},{"date":"2026-07-21","value":148},{"date":"2026-07-22","value":149},{"date":"2026-07-23","value":448},{"date":"2026-07-24","value":148},{"date":"2026-07-26","value":148},{"date":"2026-07-27","value":147},{"date":"2026-07-28","value":147},{"date":"2026-07-29","value":373}]},{"id":"mutation-rainbow","name":"Rainbow","multiplier":10,"image":"\/uploads\/images\/sab\/calculator\/mutations\/rainbow.webp","robuxValue":499,"priceHistory":[{"date":"2026-07-09","value":999},{"date":"2026-07-10","value":5000},{"date":"2026-07-11","value":10000},{"date":"2026-07-12","value":5000},{"date":"2026-07-13","value":487},{"date":"2026-07-14","value":940},{"date":"2026-07-15","value":1000},{"date":"2026-07-16","value":840},{"date":"2026-07-17","value":1499},{"date":"2026-07-18","value":940},{"date":"2026-07-19","value":923},{"date":"2026-07-20","value":798},{"date":"2026-07-21","value":799},{"date":"2026-07-22","value":499},{"date":"2026-07-23","value":499},{"date":"2026-07-24","value":719.5},{"date":"2026-07-26","value":719.5},{"date":"2026-07-27","value":499},{"date":"2026-07-28","value":499},{"date":"2026-07-29","value":499}]},{"id":"mutation-crystal","name":"Crystal","multiplier":13,"image":null,"robuxValue":null,"priceHistory":[]}]'
                 aria-label="Ref Ref Ref Sahur 30D price history"
       ></canvas>
       <div id="sabCiPriceEmpty" class="sab-ci-chart-empty">No price history yet</div>
 
       <div class="mt-4 flex items-center justify-between gap-4 text-sm">
         <span id="sabCiPriceRange" class="font-semibold text-slate-500">
-                    7 days
+                    21 days
                   </span>
         <span id="sabCiPriceCurVal" class="font-black text-amber-300">
-                    90.00 ROBUX
+                    50.00 ROBUX
                   </span>
       </div>
     </div>
@@ -394,32 +430,39 @@
             </tr>
           </thead>
           <tbody data-ci-variants-body>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="90">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="50">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#94a3b8">Default</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">90</td>
-              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">NORMAL</td>
+              <td class="px-4 py-3 font-mono text-amber-300">50</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="700">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="">
+              <td class="px-4 py-3 font-medium">
+                                Crystal
+                              </td>
+              <td class="px-4 py-3 font-mono text-amber-300">—</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">—</td>
+            </tr>
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="990">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#67e8f9">Diamond</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">700</td>
-              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">LOW</td>
+              <td class="px-4 py-3 font-mono text-amber-300">990</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">NORMAL</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="170">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="599">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#f59e0b">Gold</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">170</td>
-              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">LOW</td>
+              <td class="px-4 py-3 font-mono text-amber-300">599</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">AMAZING</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="940">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="499">
               <td class="px-4 py-3 font-medium">
                                                     <span style="background:linear-gradient(90deg,#f87171,#fb923c,#facc15,#4ade80,#60a5fa,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Rainbow</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">940</td>
+              <td class="px-4 py-3 font-mono text-amber-300">499</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
                       </tbody>
@@ -442,11 +485,11 @@
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">What is Ref Ref Ref Sahur&#039;s ROBUX value?</h3>
-        <p class="mt-2 leading-7 text-slate-300">The current tracked value of Ref Ref Ref Sahur is approximately <strong>90 ROBUX</strong>. Value may shift with demand and trading activity — see the 30D chart above.</p>
+        <p class="mt-2 leading-7 text-slate-300">The current tracked value of Ref Ref Ref Sahur is approximately <strong>50 ROBUX</strong>. Value may shift with demand and trading activity — see the 30D chart above.</p>
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">What mutations does Ref Ref Ref Sahur have?</h3>
-        <p class="mt-2 leading-7 text-slate-300">Ref Ref Ref Sahur has <strong>3</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
+        <p class="mt-2 leading-7 text-slate-300">Ref Ref Ref Sahur has <strong>4</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">Is Ref Ref Ref Sahur worth trading for?</h3>
@@ -456,7 +499,7 @@
   </section>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Ref Ref Ref Sahur rare?","acceptedAnswer":{"@type":"Answer","text":"Ref Ref Ref Sahur is considered extremely rare in Steal a Brainrot. Its Secret rarity tier puts it among the hardest items to obtain."}},{"@type":"Question","name":"What is Ref Ref Ref Sahur's income per second?","acceptedAnswer":{"@type":"Answer","text":"Ref Ref Ref Sahur generates $2.8M/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Ref Ref Ref Sahur's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"The current tracked value of Ref Ref Ref Sahur is approximately 90 ROBUX. Value may shift with demand and trading activity — see the 30D chart above."}},{"@type":"Question","name":"What mutations does Ref Ref Ref Sahur have?","acceptedAnswer":{"@type":"Answer","text":"Ref Ref Ref Sahur has 3 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Ref Ref Ref Sahur worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Yes — Ref Ref Ref Sahur is generally high-value for trading due to its Secret rarity tier and limited supply."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Ref Ref Ref Sahur rare?","acceptedAnswer":{"@type":"Answer","text":"Ref Ref Ref Sahur is considered extremely rare in Steal a Brainrot. Its Secret rarity tier puts it among the hardest items to obtain."}},{"@type":"Question","name":"What is Ref Ref Ref Sahur's income per second?","acceptedAnswer":{"@type":"Answer","text":"Ref Ref Ref Sahur generates $2.8M/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Ref Ref Ref Sahur's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"The current tracked value of Ref Ref Ref Sahur is approximately 50 ROBUX. Value may shift with demand and trading activity — see the 30D chart above."}},{"@type":"Question","name":"What mutations does Ref Ref Ref Sahur have?","acceptedAnswer":{"@type":"Answer","text":"Ref Ref Ref Sahur has 4 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Ref Ref Ref Sahur worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Yes — Ref Ref Ref Sahur is generally high-value for trading due to its Secret rarity tier and limited supply."}}]}
   </script>
 
   
@@ -472,22 +515,22 @@
           <h3 class="text-lg font-bold text-slate-100">Rarity and Value Signals</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
                         <li>Ref Ref Ref Sahur is listed as Secret rarity in Steal a Brainrot.</li>
-                        <li>The latest tracked value signal is around 90 ROBUX.</li>
-                        <li>Current community demand is marked as NORMAL.</li>
+                        <li>The latest tracked value signal is around 50 ROBUX.</li>
+                        <li>Current community demand is marked as TERRIBLE.</li>
                         <li>The base income rate is $2.8M/s, which is the main earning signal for this brainrot.</li>
                       </ul>
         </div>
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h3 class="text-lg font-bold text-slate-100">Mutations</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
-                        <li>Ref Ref Ref Sahur has 3 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
+                        <li>Ref Ref Ref Sahur has 4 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
                       </ul>
         </div>
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h3 class="text-lg font-bold text-slate-100">Should You Trade for Ref Ref Ref Sahur?</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
                         <li>Ref Ref Ref Sahur is generally considered high-value for trading due to its Secret rarity tier.</li>
-                        <li>Community demand is currently NORMAL. Use this alongside the 30D price chart above before making trade decisions.</li>
+                        <li>Community demand is currently TERRIBLE. Use this alongside the 30D price chart above before making trade decisions.</li>
                       </ul>
         </div>
                   </div>
@@ -505,6 +548,9 @@
     <div class="sab-calc-footer-links">
       <a href="/">Calculator</a>
       <a href="#faq">FAQ</a>
+      <a href="/about-us.html">About Us</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -530,14 +576,10 @@
       navShell.style.setProperty('--sab-ci-sticky-top', Math.max(0, headerBottom) + 'px');
     }
 
-    var activeAnchor = ['border-green-400', 'text-green-400'];
-    var inactiveAnchor = ['border-transparent'];
-
     function setActive(id) {
       links.forEach(function (link) {
         var isActive = link.getAttribute('data-ci-link') === id;
-        activeAnchor.forEach(function (c) { link.classList.toggle(c, isActive); });
-        inactiveAnchor.forEach(function (c) { link.classList.toggle(c, !isActive); });
+        link.classList.toggle('is-active', isActive);
         if (isActive) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');
       });

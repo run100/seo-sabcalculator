@@ -199,12 +199,41 @@
     color: rgb(100, 116, 139);
   }
   .sab-ci-section-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    overflow-x: auto;
+    padding: 0 1rem;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
   .sab-ci-section-nav::-webkit-scrollbar { display: none; }
-  .sab-ci-section-nav > a { flex-shrink: 0; }
+  .sab-ci-section-nav > a {
+    flex-shrink: 0;
+    margin-bottom: -1px;
+    padding: 0.7rem 0.85rem;
+    border-bottom: 2px solid transparent;
+    color: rgb(148, 163, 184);
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .sab-ci-section-nav > a:hover {
+    color: rgb(226, 232, 240);
+  }
+  .sab-ci-section-nav > a.is-active {
+    color: rgb(74, 222, 128);
+    border-bottom-color: rgb(74, 222, 128);
+  }
   @media (min-width: 768px) {
+    .sab-ci-section-nav {
+      flex-wrap: wrap;
+      gap: 0.35rem;
+      overflow: visible;
+    }
     .sab-ci-hero {
       grid-template-columns: 7rem minmax(0, 1fr);
     }
@@ -229,12 +258,12 @@
 
   
   <div class="sticky z-40 -mx-4 mb-5 border-b border-white/10 bg-slate-950/90 backdrop-blur" style="top:var(--sab-ci-sticky-top,64px)" data-ci-nav-shell>
-    <nav class="sab-ci-section-nav flex flex-nowrap gap-2 overflow-x-auto px-4 py-2 text-sm font-bold text-slate-400 md:flex-wrap md:gap-3 md:overflow-visible" aria-label="Page sections" data-ci-nav>
-      <a href="#value" class="rounded-md border-b border-green-400 px-3 py-2 leading-none text-green-400 hover:text-green-300" data-ci-link="value" aria-current="true">Value</a>
-            <a href="#price-history" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="price-history">30D Price</a>
-                  <a href="#mutations" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="mutations">Mutations</a>
-            <a href="#faq" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="faq">FAQ</a>
-            <a href="#about" class="rounded-md border-b border-transparent px-3 py-2 leading-none hover:text-green-300" data-ci-link="about">About</a>
+    <nav class="sab-ci-section-nav" aria-label="Page sections" data-ci-nav>
+      <a href="#value" class="is-active" data-ci-link="value" aria-current="true">Value</a>
+            <a href="#price-history" data-ci-link="price-history">30D Price</a>
+                  <a href="#mutations" data-ci-link="mutations">Mutations</a>
+            <a href="#faq" data-ci-link="faq">FAQ</a>
+            <a href="#about" data-ci-link="about">About</a>
           </nav>
   </div>
 
@@ -264,7 +293,7 @@
       <div class="sab-ci-stat-cell">
         <div class="sab-ci-stat-label">Value</div>
         <div class="sab-ci-stat-value sab-ci-stat-value--value">
-                    230 <span style="font-size:0.65rem;font-weight:600;opacity:.7">ROBUX</span>
+                    189 <span style="font-size:0.65rem;font-weight:600;opacity:.7">ROBUX</span>
                   </div>
       </div>
       <div class="sab-ci-stat-cell">
@@ -292,7 +321,7 @@
         <div>
           <div class="sab-ci-price-stat-label">Value</div>
           <div id="sabCiBaseValue" class="mt-1 text-base font-bold text-slate-100">
-                        $230.00
+                        $189.00
                       </div>
         </div>
         <div>
@@ -304,7 +333,7 @@
         <div>
           <div class="sab-ci-price-stat-label">Mutation Value</div>
           <div id="sabCiMutValue" class="mt-1 text-base font-bold text-amber-300">
-                        $230.00
+                        $189.00
                       </div>
         </div>
       </div>
@@ -373,6 +402,13 @@
                     <img src="/uploads/images/sab/calculator/mutations/divine.webp" alt="" loading="lazy">
                     Divine
         </button>
+                <button
+          type="button"
+          class="sab-ci-mut-tab"
+          data-mut-idx="8"
+        >
+                    Crystal
+        </button>
               </div>
             
       <div class="mb-4 flex items-start justify-between gap-4">
@@ -382,7 +418,7 @@
             High
           </span>
           <span id="sabCiPricePct" class="text-lg font-black text-emerald-300">
-            +13.6%
+            +26.8%
           </span>
                   </div>
       </div>
@@ -391,17 +427,17 @@
         id="sabCiPriceChart"
         class="block h-28 w-full"
         width="720" height="112"
-                data-mutations='[{"id":"base","name":"Default","multiplier":1,"image":null,"robuxValue":230,"priceHistory":[{"date":"2026-06-14","value":202.5},{"date":"2026-06-15","value":260},{"date":"2026-06-16","value":198},{"date":"2026-06-17","value":261.5},{"date":"2026-06-18","value":200},{"date":"2026-06-19","value":199},{"date":"2026-06-20","value":199},{"date":"2026-06-21","value":199},{"date":"2026-06-22","value":199},{"date":"2026-06-23","value":204},{"date":"2026-06-24","value":203.5},{"date":"2026-06-25","value":192.5},{"date":"2026-06-26","value":190},{"date":"2026-06-27","value":217},{"date":"2026-06-28","value":220},{"date":"2026-06-29","value":162},{"date":"2026-06-30","value":149},{"date":"2026-07-01","value":100},{"date":"2026-07-02","value":195},{"date":"2026-07-03","value":193.3333},{"date":"2026-07-04","value":195},{"date":"2026-07-05","value":171.6667},{"date":"2026-07-06","value":155},{"date":"2026-07-07","value":120},{"date":"2026-07-08","value":147.5},{"date":"2026-07-09","value":130},{"date":"2026-07-10","value":199},{"date":"2026-07-11","value":130},{"date":"2026-07-12","value":130},{"date":"2026-07-13","value":299},{"date":"2026-07-14","value":230}]},{"id":"mutation-gold","name":"Gold","multiplier":1.25,"image":"\/uploads\/images\/sab\/calculator\/mutations\/gold.webp","robuxValue":245,"priceHistory":[{"date":"2026-06-14","value":280},{"date":"2026-06-16","value":249},{"date":"2026-06-17","value":249},{"date":"2026-06-22","value":213},{"date":"2026-06-23","value":213},{"date":"2026-06-24","value":213},{"date":"2026-06-25","value":210},{"date":"2026-06-26","value":210},{"date":"2026-06-27","value":210},{"date":"2026-06-28","value":389},{"date":"2026-06-29","value":120},{"date":"2026-06-30","value":210},{"date":"2026-07-01","value":208},{"date":"2026-07-02","value":208},{"date":"2026-07-03","value":208},{"date":"2026-07-05","value":208},{"date":"2026-07-06","value":208},{"date":"2026-07-07","value":208},{"date":"2026-07-08","value":208},{"date":"2026-07-09","value":450},{"date":"2026-07-10","value":245},{"date":"2026-07-11","value":245},{"date":"2026-07-12","value":245},{"date":"2026-07-13","value":245},{"date":"2026-07-14","value":245}]},{"id":"mutation-cyber","name":"Cyber","multiplier":11,"image":"\/uploads\/images\/sab\/calculator\/mutations\/cyber.webp","robuxValue":2900,"priceHistory":[{"date":"2026-06-14","value":4999},{"date":"2026-06-16","value":2500},{"date":"2026-06-17","value":2500},{"date":"2026-06-22","value":4999},{"date":"2026-06-23","value":4999},{"date":"2026-06-24","value":4999},{"date":"2026-06-25","value":4999},{"date":"2026-06-26","value":4999},{"date":"2026-06-27","value":4999},{"date":"2026-06-28","value":4999},{"date":"2026-06-29","value":3000},{"date":"2026-06-30","value":3600},{"date":"2026-07-01","value":3000},{"date":"2026-07-02","value":3000},{"date":"2026-07-03","value":3000},{"date":"2026-07-05","value":3000},{"date":"2026-07-06","value":3000},{"date":"2026-07-07","value":3000},{"date":"2026-07-08","value":3000},{"date":"2026-07-09","value":3000},{"date":"2026-07-10","value":2900},{"date":"2026-07-11","value":2900},{"date":"2026-07-12","value":3000},{"date":"2026-07-13","value":3000},{"date":"2026-07-14","value":2900}]},{"id":"mutation-diamond","name":"Diamond","multiplier":1.5,"image":"\/uploads\/images\/sab\/calculator\/mutations\/diamond.webp","robuxValue":289,"priceHistory":[{"date":"2026-06-14","value":370},{"date":"2026-06-16","value":300},{"date":"2026-06-17","value":500},{"date":"2026-06-22","value":498},{"date":"2026-06-23","value":498},{"date":"2026-06-24","value":369},{"date":"2026-06-25","value":230},{"date":"2026-06-26","value":230},{"date":"2026-06-27","value":298},{"date":"2026-06-28","value":497},{"date":"2026-06-29","value":295},{"date":"2026-06-30","value":295},{"date":"2026-07-01","value":230},{"date":"2026-07-02","value":230},{"date":"2026-07-03","value":230},{"date":"2026-07-05","value":290},{"date":"2026-07-06","value":292},{"date":"2026-07-07","value":290},{"date":"2026-07-08","value":290},{"date":"2026-07-09","value":497},{"date":"2026-07-10","value":289},{"date":"2026-07-11","value":289},{"date":"2026-07-12","value":289},{"date":"2026-07-13","value":289},{"date":"2026-07-14","value":289}]},{"id":"mutation-rainbow","name":"Rainbow","multiplier":10,"image":"\/uploads\/images\/sab\/calculator\/mutations\/rainbow.webp","robuxValue":279,"priceHistory":[{"date":"2026-06-14","value":360},{"date":"2026-06-16","value":330},{"date":"2026-06-17","value":330},{"date":"2026-06-22","value":395},{"date":"2026-06-23","value":350},{"date":"2026-06-24","value":395},{"date":"2026-06-25","value":339},{"date":"2026-06-26","value":339},{"date":"2026-06-27","value":299},{"date":"2026-06-28","value":296},{"date":"2026-06-29","value":339},{"date":"2026-06-30","value":289},{"date":"2026-07-01","value":250},{"date":"2026-07-02","value":279},{"date":"2026-07-03","value":279},{"date":"2026-07-05","value":279},{"date":"2026-07-06","value":279},{"date":"2026-07-07","value":279},{"date":"2026-07-08","value":344},{"date":"2026-07-09","value":279},{"date":"2026-07-10","value":279},{"date":"2026-07-11","value":279},{"date":"2026-07-12","value":279},{"date":"2026-07-13","value":279},{"date":"2026-07-14","value":279}]},{"id":"mutation-radioactive","name":"Radioactive","multiplier":8.5,"image":"\/uploads\/images\/sab\/calculator\/mutations\/radioactive.webp","robuxValue":1800,"priceHistory":[{"date":"2026-06-14","value":1800},{"date":"2026-06-16","value":1800},{"date":"2026-06-17","value":1800},{"date":"2026-06-22","value":1800},{"date":"2026-06-23","value":1800},{"date":"2026-06-24","value":1800},{"date":"2026-06-25","value":1800},{"date":"2026-06-26","value":1800},{"date":"2026-06-27","value":1800},{"date":"2026-06-28","value":1800},{"date":"2026-06-29","value":1800},{"date":"2026-06-30","value":1800},{"date":"2026-07-01","value":1800},{"date":"2026-07-02","value":1800},{"date":"2026-07-03","value":1800},{"date":"2026-07-05","value":1800},{"date":"2026-07-06","value":1800},{"date":"2026-07-07","value":1800},{"date":"2026-07-08","value":1800},{"date":"2026-07-09","value":1800},{"date":"2026-07-10","value":1800},{"date":"2026-07-11","value":1800},{"date":"2026-07-12","value":1800},{"date":"2026-07-13","value":1800},{"date":"2026-07-14","value":1800}]},{"id":"mutation-galaxy","name":"Galaxy","multiplier":7,"image":"\/uploads\/images\/sab\/calculator\/mutations\/galaxy.webp","robuxValue":299,"priceHistory":[{"date":"2026-06-14","value":249},{"date":"2026-06-16","value":284},{"date":"2026-06-17","value":284},{"date":"2026-06-22","value":379},{"date":"2026-06-23","value":377},{"date":"2026-06-24","value":350},{"date":"2026-06-25","value":340},{"date":"2026-06-26","value":340},{"date":"2026-06-27","value":340},{"date":"2026-06-28","value":220},{"date":"2026-06-29","value":270},{"date":"2026-06-30","value":220},{"date":"2026-07-01","value":219},{"date":"2026-07-02","value":219},{"date":"2026-07-03","value":219},{"date":"2026-07-05","value":250},{"date":"2026-07-06","value":344},{"date":"2026-07-07","value":200},{"date":"2026-07-08","value":290},{"date":"2026-07-09","value":200},{"date":"2026-07-10","value":200},{"date":"2026-07-11","value":290},{"date":"2026-07-12","value":290},{"date":"2026-07-13","value":290},{"date":"2026-07-14","value":299}]},{"id":"mutation-divine","name":"Divine","multiplier":10,"image":"\/uploads\/images\/sab\/calculator\/mutations\/divine.webp","robuxValue":150000,"priceHistory":[{"date":"2026-07-13","value":150000},{"date":"2026-07-14","value":150000}]}]'
+                data-mutations='[{"id":"base","name":"Default","multiplier":1,"image":null,"robuxValue":189,"priceHistory":[{"date":"2026-06-30","value":149},{"date":"2026-07-01","value":100},{"date":"2026-07-02","value":195},{"date":"2026-07-03","value":193.3333},{"date":"2026-07-04","value":195},{"date":"2026-07-05","value":171.6667},{"date":"2026-07-06","value":155},{"date":"2026-07-07","value":120},{"date":"2026-07-08","value":147.5},{"date":"2026-07-09","value":130},{"date":"2026-07-10","value":199},{"date":"2026-07-11","value":130},{"date":"2026-07-12","value":130},{"date":"2026-07-13","value":299},{"date":"2026-07-14","value":230},{"date":"2026-07-15","value":199},{"date":"2026-07-16","value":190},{"date":"2026-07-17","value":300},{"date":"2026-07-18","value":300},{"date":"2026-07-19","value":299},{"date":"2026-07-20","value":300},{"date":"2026-07-21","value":300},{"date":"2026-07-22","value":300},{"date":"2026-07-23","value":195},{"date":"2026-07-24","value":195},{"date":"2026-07-26","value":195},{"date":"2026-07-27","value":195},{"date":"2026-07-28","value":189},{"date":"2026-07-29","value":189}]},{"id":"mutation-gold","name":"Gold","multiplier":1.25,"image":"\/uploads\/images\/sab\/calculator\/mutations\/gold.webp","robuxValue":198,"priceHistory":[{"date":"2026-06-30","value":210},{"date":"2026-07-01","value":208},{"date":"2026-07-02","value":208},{"date":"2026-07-03","value":208},{"date":"2026-07-05","value":208},{"date":"2026-07-06","value":208},{"date":"2026-07-07","value":208},{"date":"2026-07-08","value":208},{"date":"2026-07-09","value":450},{"date":"2026-07-10","value":245},{"date":"2026-07-11","value":245},{"date":"2026-07-12","value":245},{"date":"2026-07-13","value":245},{"date":"2026-07-14","value":245},{"date":"2026-07-15","value":245},{"date":"2026-07-16","value":245},{"date":"2026-07-17","value":245},{"date":"2026-07-18","value":245},{"date":"2026-07-19","value":245},{"date":"2026-07-20","value":245},{"date":"2026-07-21","value":221},{"date":"2026-07-22","value":221},{"date":"2026-07-23","value":220},{"date":"2026-07-24","value":220.5},{"date":"2026-07-26","value":220.5},{"date":"2026-07-27","value":220},{"date":"2026-07-28","value":215},{"date":"2026-07-29","value":198.5}]},{"id":"mutation-cyber","name":"Cyber","multiplier":11,"image":"\/uploads\/images\/sab\/calculator\/mutations\/cyber.webp","robuxValue":2700,"priceHistory":[{"date":"2026-06-30","value":3600},{"date":"2026-07-01","value":3000},{"date":"2026-07-02","value":3000},{"date":"2026-07-03","value":3000},{"date":"2026-07-05","value":3000},{"date":"2026-07-06","value":3000},{"date":"2026-07-07","value":3000},{"date":"2026-07-08","value":3000},{"date":"2026-07-09","value":3000},{"date":"2026-07-10","value":2900},{"date":"2026-07-11","value":2900},{"date":"2026-07-12","value":3000},{"date":"2026-07-13","value":3000},{"date":"2026-07-14","value":2900},{"date":"2026-07-15","value":2900},{"date":"2026-07-16","value":2900},{"date":"2026-07-17","value":2900},{"date":"2026-07-18","value":5000},{"date":"2026-07-19","value":5000},{"date":"2026-07-20","value":2800},{"date":"2026-07-21","value":2800},{"date":"2026-07-22","value":2800},{"date":"2026-07-23","value":2800},{"date":"2026-07-24","value":2800},{"date":"2026-07-26","value":3899.5},{"date":"2026-07-27","value":2800},{"date":"2026-07-28","value":4999},{"date":"2026-07-29","value":2700}]},{"id":"mutation-diamond","name":"Diamond","multiplier":1.5,"image":"\/uploads\/images\/sab\/calculator\/mutations\/diamond.webp","robuxValue":294,"priceHistory":[{"date":"2026-06-30","value":295},{"date":"2026-07-01","value":230},{"date":"2026-07-02","value":230},{"date":"2026-07-03","value":230},{"date":"2026-07-05","value":290},{"date":"2026-07-06","value":292},{"date":"2026-07-07","value":290},{"date":"2026-07-08","value":290},{"date":"2026-07-09","value":497},{"date":"2026-07-10","value":289},{"date":"2026-07-11","value":289},{"date":"2026-07-12","value":289},{"date":"2026-07-13","value":289},{"date":"2026-07-14","value":289},{"date":"2026-07-15","value":289},{"date":"2026-07-16","value":289},{"date":"2026-07-17","value":289},{"date":"2026-07-18","value":289},{"date":"2026-07-19","value":289},{"date":"2026-07-20","value":289},{"date":"2026-07-21","value":289},{"date":"2026-07-22","value":289},{"date":"2026-07-23","value":285},{"date":"2026-07-24","value":339.5},{"date":"2026-07-26","value":394},{"date":"2026-07-27","value":285},{"date":"2026-07-28","value":218},{"date":"2026-07-29","value":256}]},{"id":"mutation-rainbow","name":"Rainbow","multiplier":10,"image":"\/uploads\/images\/sab\/calculator\/mutations\/rainbow.webp","robuxValue":270,"priceHistory":[{"date":"2026-06-30","value":289},{"date":"2026-07-01","value":250},{"date":"2026-07-02","value":279},{"date":"2026-07-03","value":279},{"date":"2026-07-05","value":279},{"date":"2026-07-06","value":279},{"date":"2026-07-07","value":279},{"date":"2026-07-08","value":344},{"date":"2026-07-09","value":279},{"date":"2026-07-10","value":279},{"date":"2026-07-11","value":279},{"date":"2026-07-12","value":279},{"date":"2026-07-13","value":279},{"date":"2026-07-14","value":279},{"date":"2026-07-15","value":279},{"date":"2026-07-16","value":350},{"date":"2026-07-17","value":279},{"date":"2026-07-18","value":1299},{"date":"2026-07-19","value":333},{"date":"2026-07-20","value":333},{"date":"2026-07-21","value":333},{"date":"2026-07-22","value":795},{"date":"2026-07-23","value":333},{"date":"2026-07-24","value":306.5},{"date":"2026-07-26","value":537.5},{"date":"2026-07-27","value":280},{"date":"2026-07-28","value":270},{"date":"2026-07-29","value":270}]},{"id":"mutation-radioactive","name":"Radioactive","multiplier":8.5,"image":"\/uploads\/images\/sab\/calculator\/mutations\/radioactive.webp","robuxValue":1800,"priceHistory":[{"date":"2026-06-30","value":1800},{"date":"2026-07-01","value":1800},{"date":"2026-07-02","value":1800},{"date":"2026-07-03","value":1800},{"date":"2026-07-05","value":1800},{"date":"2026-07-06","value":1800},{"date":"2026-07-07","value":1800},{"date":"2026-07-08","value":1800},{"date":"2026-07-09","value":1800},{"date":"2026-07-10","value":1800},{"date":"2026-07-11","value":1800},{"date":"2026-07-12","value":1800},{"date":"2026-07-13","value":1800},{"date":"2026-07-14","value":1800},{"date":"2026-07-15","value":1800},{"date":"2026-07-16","value":1800},{"date":"2026-07-17","value":1800},{"date":"2026-07-18","value":1800},{"date":"2026-07-19","value":1800},{"date":"2026-07-20","value":1800},{"date":"2026-07-21","value":1800},{"date":"2026-07-22","value":1800},{"date":"2026-07-23","value":1800},{"date":"2026-07-24","value":1800},{"date":"2026-07-26","value":1800},{"date":"2026-07-27","value":1800},{"date":"2026-07-28","value":1800},{"date":"2026-07-29","value":1800}]},{"id":"mutation-galaxy","name":"Galaxy","multiplier":7,"image":"\/uploads\/images\/sab\/calculator\/mutations\/galaxy.webp","robuxValue":199,"priceHistory":[{"date":"2026-06-30","value":220},{"date":"2026-07-01","value":219},{"date":"2026-07-02","value":219},{"date":"2026-07-03","value":219},{"date":"2026-07-05","value":250},{"date":"2026-07-06","value":344},{"date":"2026-07-07","value":200},{"date":"2026-07-08","value":290},{"date":"2026-07-09","value":200},{"date":"2026-07-10","value":200},{"date":"2026-07-11","value":290},{"date":"2026-07-12","value":290},{"date":"2026-07-13","value":290},{"date":"2026-07-14","value":299},{"date":"2026-07-15","value":290},{"date":"2026-07-16","value":270},{"date":"2026-07-17","value":199},{"date":"2026-07-18","value":240},{"date":"2026-07-19","value":220},{"date":"2026-07-20","value":99},{"date":"2026-07-21","value":220},{"date":"2026-07-22","value":290},{"date":"2026-07-23","value":219},{"date":"2026-07-24","value":272},{"date":"2026-07-26","value":199},{"date":"2026-07-27","value":199},{"date":"2026-07-28","value":210},{"date":"2026-07-29","value":209}]},{"id":"mutation-divine","name":"Divine","multiplier":10,"image":"\/uploads\/images\/sab\/calculator\/mutations\/divine.webp","robuxValue":150000,"priceHistory":[{"date":"2026-07-13","value":150000},{"date":"2026-07-14","value":150000},{"date":"2026-07-15","value":150000},{"date":"2026-07-16","value":150000},{"date":"2026-07-17","value":150000},{"date":"2026-07-18","value":150000},{"date":"2026-07-19","value":150000},{"date":"2026-07-20","value":150000},{"date":"2026-07-21","value":150000},{"date":"2026-07-22","value":150000},{"date":"2026-07-23","value":150000},{"date":"2026-07-24","value":150000},{"date":"2026-07-26","value":150000},{"date":"2026-07-27","value":150000},{"date":"2026-07-28","value":150000},{"date":"2026-07-29","value":150000}]},{"id":"mutation-crystal","name":"Crystal","multiplier":13,"image":null,"robuxValue":null,"priceHistory":[]}]'
                 aria-label="Raccooni Jandelini 30D price history"
       ></canvas>
       <div id="sabCiPriceEmpty" class="sab-ci-chart-empty">No price history yet</div>
 
       <div class="mt-4 flex items-center justify-between gap-4 text-sm">
         <span id="sabCiPriceRange" class="font-semibold text-slate-500">
-                    31 days
+                    29 days
                   </span>
         <span id="sabCiPriceCurVal" class="font-black text-amber-300">
-                    230.00 ROBUX
+                    189.00 ROBUX
                   </span>
       </div>
     </div>
@@ -426,25 +462,32 @@
             </tr>
           </thead>
           <tbody data-ci-variants-body>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="230">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="189">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#94a3b8">Default</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">230</td>
+              <td class="px-4 py-3 font-mono text-amber-300">189</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="2900">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="">
+              <td class="px-4 py-3 font-medium">
+                                Crystal
+                              </td>
+              <td class="px-4 py-3 font-mono text-amber-300">—</td>
+              <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">—</td>
+            </tr>
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="2700">
               <td class="px-4 py-3 font-medium">
                                 Cyber
                               </td>
-              <td class="px-4 py-3 font-mono text-amber-300">2,900</td>
+              <td class="px-4 py-3 font-mono text-amber-300">2,700</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="289">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="294">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#67e8f9">Diamond</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">289</td>
+              <td class="px-4 py-3 font-mono text-amber-300">294</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
                                     <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="150000">
@@ -454,18 +497,18 @@
               <td class="px-4 py-3 font-mono text-amber-300">150,000</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">NORMAL</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="299">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="199">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#818cf8">Galaxy</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">299</td>
+              <td class="px-4 py-3 font-mono text-amber-300">199</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="245">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="198">
               <td class="px-4 py-3 font-medium">
                                                     <span style="color:#f59e0b">Gold</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">245</td>
+              <td class="px-4 py-3 font-mono text-amber-300">198</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
                                     <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="1800">
@@ -475,11 +518,11 @@
               <td class="px-4 py-3 font-mono text-amber-300">1,800</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">NORMAL</td>
             </tr>
-                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="279">
+                                    <tr class="border-b border-white/5 hover:bg-white/5" data-value-sort="270">
               <td class="px-4 py-3 font-medium">
                                                     <span style="background:linear-gradient(90deg,#f87171,#fb923c,#facc15,#4ade80,#60a5fa,#c084fc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Rainbow</span>
                                                 </td>
-              <td class="px-4 py-3 font-mono text-amber-300">279</td>
+              <td class="px-4 py-3 font-mono text-amber-300">270</td>
               <td class="px-4 py-3 text-slate-400 hidden sm:table-cell">TERRIBLE</td>
             </tr>
                       </tbody>
@@ -502,11 +545,11 @@
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">What is Raccooni Jandelini&#039;s ROBUX value?</h3>
-        <p class="mt-2 leading-7 text-slate-300">The current tracked value of Raccooni Jandelini is approximately <strong>230 ROBUX</strong>. Value may shift with demand and trading activity — see the 30D chart above.</p>
+        <p class="mt-2 leading-7 text-slate-300">The current tracked value of Raccooni Jandelini is approximately <strong>189 ROBUX</strong>. Value may shift with demand and trading activity — see the 30D chart above.</p>
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">What mutations does Raccooni Jandelini have?</h3>
-        <p class="mt-2 leading-7 text-slate-300">Raccooni Jandelini has <strong>7</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
+        <p class="mt-2 leading-7 text-slate-300">Raccooni Jandelini has <strong>8</strong> known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option.</p>
       </div>
             <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
         <h3 class="text-lg font-bold text-slate-100">Is Raccooni Jandelini worth trading for?</h3>
@@ -516,7 +559,7 @@
   </section>
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Raccooni Jandelini rare?","acceptedAnswer":{"@type":"Answer","text":"Raccooni Jandelini is a Common tier item, relatively easy to find compared to higher-rarity brainrots."}},{"@type":"Question","name":"What is Raccooni Jandelini's income per second?","acceptedAnswer":{"@type":"Answer","text":"Raccooni Jandelini generates $12/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Raccooni Jandelini's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"The current tracked value of Raccooni Jandelini is approximately 230 ROBUX. Value may shift with demand and trading activity — see the 30D chart above."}},{"@type":"Question","name":"What mutations does Raccooni Jandelini have?","acceptedAnswer":{"@type":"Answer","text":"Raccooni Jandelini has 7 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Raccooni Jandelini worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Trade value for Raccooni Jandelini depends on current market demand. Use the 30D price chart and demand signal above as context before trading."}}]}
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is Raccooni Jandelini rare?","acceptedAnswer":{"@type":"Answer","text":"Raccooni Jandelini is a Common tier item, relatively easy to find compared to higher-rarity brainrots."}},{"@type":"Question","name":"What is Raccooni Jandelini's income per second?","acceptedAnswer":{"@type":"Answer","text":"Raccooni Jandelini generates $12/s per second in Steal a Brainrot. This is the base rate for the normal (Default) variant."}},{"@type":"Question","name":"What is Raccooni Jandelini's ROBUX value?","acceptedAnswer":{"@type":"Answer","text":"The current tracked value of Raccooni Jandelini is approximately 189 ROBUX. Value may shift with demand and trading activity — see the 30D chart above."}},{"@type":"Question","name":"What mutations does Raccooni Jandelini have?","acceptedAnswer":{"@type":"Answer","text":"Raccooni Jandelini has 8 known mutation(s). Check the Mutations table on this page for each variant's ROBUX value and demand to identify the most valuable option."}},{"@type":"Question","name":"Is Raccooni Jandelini worth trading for?","acceptedAnswer":{"@type":"Answer","text":"Trade value for Raccooni Jandelini depends on current market demand. Use the 30D price chart and demand signal above as context before trading."}}]}
   </script>
 
   
@@ -533,7 +576,7 @@
           <h3 class="text-lg font-bold text-slate-100">Rarity and Value Signals</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
                         <li>Raccooni Jandelini is listed as Common rarity in Steal a Brainrot.</li>
-                        <li>The latest tracked value signal is around 230 ROBUX.</li>
+                        <li>The latest tracked value signal is around 189 ROBUX.</li>
                         <li>Current community demand is marked as TERRIBLE.</li>
                         <li>The base income rate is $12/s, which is the main earning signal for this brainrot.</li>
                       </ul>
@@ -541,7 +584,7 @@
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
           <h3 class="text-lg font-bold text-slate-100">Mutations</h3>
           <ul class="mt-2 list-none space-y-1 leading-7 text-slate-300">
-                        <li>Raccooni Jandelini has 7 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
+                        <li>Raccooni Jandelini has 8 known mutation(s). Compare mutation values in the table above to find the most valuable variant.</li>
                       </ul>
         </div>
                         <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
@@ -566,6 +609,9 @@
     <div class="sab-calc-footer-links">
       <a href="/">Calculator</a>
       <a href="#faq">FAQ</a>
+      <a href="/about-us.html">About Us</a>
+      <a href="/privacy-policy.html">Privacy Policy</a>
+      <a href="/terms-of-service.html">Terms of Service</a>
     </div>
   </div>
 </footer>
@@ -591,14 +637,10 @@
       navShell.style.setProperty('--sab-ci-sticky-top', Math.max(0, headerBottom) + 'px');
     }
 
-    var activeAnchor = ['border-green-400', 'text-green-400'];
-    var inactiveAnchor = ['border-transparent'];
-
     function setActive(id) {
       links.forEach(function (link) {
         var isActive = link.getAttribute('data-ci-link') === id;
-        activeAnchor.forEach(function (c) { link.classList.toggle(c, isActive); });
-        inactiveAnchor.forEach(function (c) { link.classList.toggle(c, !isActive); });
+        link.classList.toggle('is-active', isActive);
         if (isActive) link.setAttribute('aria-current', 'true');
         else link.removeAttribute('aria-current');
       });
